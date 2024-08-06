@@ -1,0 +1,46 @@
+Objetivos de la investigación (OI):
+a) Aplicar un grupo de encuestas válidas en la población universitaria de la Universidad de Magallanes y Universidad de Aysén.
+b) Reconocer las diferencias de sexo, área de estudio de pregrado, factores étnicos y factores geográficos (Magallanes-Aysén) en la presencia de factores contextuales y dolor crónico no oncológico.
+c) Relacionar la presencia de dolor crónico no oncológico, los aspectos académicos y la declaración de actividad física realizada en universitarios de la macrozona austral.
+d) Analizar la relación entre factores de calidad de sueño y el cronotipo en universitarios de la macrozona austral.
+
+Objetivos de análisis, basado en los OI:
+a) Estadísticos descriptivos de resultados de encuestas aplicadas y datos sociodemográficos.
+b) Valorar el efecto del sexo, área de estudio del pregrado, factores étnicos y geográficos sobre el dolor.
+c) Valorar el efecto de la actividad física (controlando y sin controlar por factores contextuales) sobre el dolor.
+d) Valorar el efecto de la calidad de sueño y cronotipo (controlando y sin controlar por factores contextuales) sobre el dolor.
+
+Variables outcome a partir de indicadores relevantes:
+- Dolor: cuanto_afecta_dolor, escala_dolor, frecuencia_dolor, dolor_frecuente_3meses
+
+Variables independientes (a partir de objetivos):
+- Actividad física: score_ipaq, mets_total, mets_vigorosa, mets_moderada, mets_caminar
+- Calidad de sueño: pittsburg_horasdormidas, clasificacion_global
+- Cronotipo: matutinidad_score (numerico), score_matutinidad (categorico)
+
+Variables de control:
+- edad, genero, universidad, nacionalidad, area_estudios, consumo_alcohol, consume_tabaco
+
+Propuesta de presentación de los resultados:
+---
+## Caracterización de la muestra
+[Tamaño muestral, porporción de hombres/mujeres, edad, escala de dolor media]
+
+## Efecto de factores contextuales y sociodemogreaficos en el dolor
+[Efecto simple de cada variable de control sobre las variables de dolor]
+[Efecto ajustado de cada variable de control en un modelo saturado sobro las variables de dolor]
+
+## Efecto de la actividad física sobre el dolor
+[Efecto simple de cada variable de actividad física sobre cada variable de dolor]
+[Efecto de cada variable de actividad física sobre cada variable de dolor, ajustando por variables de control]
+
+## Efecto del cronotipo y calidad de sueño sobre el dolor
+
+### Cronotipo y dolor
+[Efecto simple de cada variable de cronotipo sobre cada variable de dolor]
+[Efecto de cada variable de cronotipo sobre cada variable de dolor, ajustando por variables de control]
+
+### Calidad de sueño y dolor
+[Efecto simple de cada variable de calidad de sueño sobre cada variable de dolor]
+[Efecto de cada variable de calidad de sueño sobre cada variable de dolor, ajustando por variables de control]
+---
