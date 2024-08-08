@@ -50,12 +50,12 @@ if (interactive()) {
 
 ms4_pittsburg_horasdormidas <- bayesian_bernoulli(
   dolor_frecuente_3meses ~ pittsburg_horasdormidas,
-  data = tbl_data, file = "models/psqi-dolor/ms4_pittsburg_horasdormidas"
+  data = tbl_data, file = "models/psqi-dolor/ms4_pittsburg_horasdormidas.RDS"
 )
 
 ms4_clasificacion_global <- bayesian_bernoulli(
   dolor_frecuente_3meses ~ clasificacion_global,
-  data = tbl_data, file = "models/psqi-dolor/ms4_clasificacion_global"
+  data = tbl_data, file = "models/psqi-dolor/ms4_clasificacion_global.RDS"
 )
 
 
@@ -64,13 +64,13 @@ ms4_clasificacion_global <- bayesian_bernoulli(
 mc4_pittsburg_horasdormidas <- bayesian_bernoulli(
   dolor_frecuente_3meses ~ pittsburg_horasdormidas + edad + genero +
     universidad + area_estudios + consumo_alcohol + consume_tabaco,
-  data = tbl_data, file = "models/psqi-dolor/mc4_pittsburg_horasdormidas"
+  data = tbl_data, file = "models/psqi-dolor/mc4_pittsburg_horasdormidas.RDS"
 )
 
 mc4_clasificacion_global <- bayesian_bernoulli(
   dolor_frecuente_3meses ~ clasificacion_global + edad + genero +
     universidad + area_estudios + consumo_alcohol + consume_tabaco,
-  data = tbl_data, file = "models/psqi-dolor/mc4_clasificacion_global"
+  data = tbl_data, file = "models/psqi-dolor/mc4_clasificacion_global.RDS"
 )
 
 
