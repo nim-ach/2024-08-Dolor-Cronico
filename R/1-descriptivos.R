@@ -40,7 +40,7 @@ tbl_data <- chronic[, .SD, .SDcols = vars]
 var_labels <- list(
   "edad" ~ "Edad", "genero" ~ "Género", "universidad" ~ "Universidad", "nacionalidad" ~ "Nacionalidad",
   "area_estudios" ~ "Área de Estudios", "consumo_alcohol" ~ "Consumo de Alcohol",
-  "consume_tabaco" ~ "Hábito tabáquico", "dolor_frecuente_3meses" ~ "Dolor Frecuente >3 meses", "cuanto_afecta_dolor" ~ "Afectación funcional del Dolor",
+  "consume_tabaco" ~ "Hábito tabáquico", "dolor_frecuente_3meses" ~ "Duración Dolor", "cuanto_afecta_dolor" ~ "Afectación funcional del Dolor",
   "escala_dolor" ~ "Escala Numérica de Dolor (0-10)", "frecuencia_dolor" ~ "Frecuencia del Dolor",
   "score_ipaq" ~ "Nivel de Actividad Física", "mets_total" ~ "MET Total", "mets_vigorosa" ~ "MET AF Vigorosa",
   "mets_moderada" ~ "MET AF Moderada", "mets_caminar" ~ "MET AF Caminata",
@@ -66,9 +66,7 @@ tbl_2 <-
 ## Descriptivos bivariados por duración del dolor
 tbl_3 <-
   tbl_summary(
-  data = within(tbl_data, {
-    dolor_frecuente_3meses = `levels<-`(dolor_frecuente_3meses, c("≥ 3 meses", "< 3 meses"))
-  }),
+  data = tbl_data,
   by = dolor_frecuente_3meses, label = var_labels[-8], missing = "no") |>
   bold_labels() |>
   add_difference(test = all_continuous() ~ "smd", include = all_continuous())

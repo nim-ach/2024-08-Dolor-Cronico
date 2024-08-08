@@ -5,10 +5,10 @@ c) Relacionar la presencia de dolor crónico no oncológico, los aspectos acadé
 d) Analizar la relación entre factores de calidad de sueño y el cronotipo en universitarios de la macrozona austral.
 
 Objetivos de análisis, basado en los OI:
-a) Estadísticos descriptivos de resultados de encuestas aplicadas y datos sociodemográficos.
-b) Valorar el efecto del sexo, área de estudio del pregrado, factores étnicos y geográficos sobre el dolor.
-c) Valorar el efecto de la actividad física (controlando y sin controlar por factores contextuales) sobre el dolor.
-d) Valorar el efecto de la calidad de sueño y cronotipo (controlando y sin controlar por factores contextuales) sobre el dolor.
+- [x] Estadísticos descriptivos de resultados de encuestas aplicadas y datos sociodemográficos.
+- [x] Valorar el efecto del sexo, área de estudio del pregrado, factores étnicos y geográficos sobre el dolor.
+- [x] Valorar el efecto de la actividad física (controlando y sin controlar por factores contextuales) sobre el dolor.
+- [ ] Valorar el efecto de la calidad de sueño y cronotipo (controlando y sin controlar por factores contextuales) sobre el dolor.
 
 Variables outcome a partir de indicadores relevantes:
 - Dolor: cuanto_afecta_dolor, escala_dolor, frecuencia_dolor, dolor_frecuente_3meses
