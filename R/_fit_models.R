@@ -15,3 +15,9 @@ source("R/4.1-psqi-dolor-funcional.R")
 source("R/4.2-psqi-y-dolor-escala.R")
 source("R/4.3-psqi-y-dolor-frecuencia.R")
 source("R/4.4-psqi-y-dolor-duracion.R")
+
+## Cronotipo y dolor
+source("R/5.1-cronotipo-dolor-funcional.R")
+source("R/5.2-cronotipo-y-dolor-escala.R")
+source("R/5.3-cronotipo-y-dolor-frecuencia.R")
+source("R/5.4-cronotipo-y-dolor-duracion.R")
