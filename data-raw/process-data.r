@@ -8,7 +8,9 @@ library(data.table)
 # Read Data
 data=fread('data-raw/raw-data.csv')
 
-# Setting Factors(will create new variable for factors)
+# Formatting variables
+data$nombre_completo <- NULL
+data$rut <- NULL
 data$genero = factor(data$genero,levels=c("1","2"))
 data$nacionalidad[data$nacionalidad == ""] = NA
 data$nacionalidad = factor(data$nacionalidad)

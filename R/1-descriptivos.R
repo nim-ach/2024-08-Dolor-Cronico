@@ -53,13 +53,15 @@ theme_gtsummary_language("es")
 
 ## Descriptivos univariados
 tbl_1 <-
-  tbl_summary(tbl_data, label = var_labels, missing = "no") |>
+  tbl_summary(tbl_data, label = var_labels, missing = "no",
+              statistic = list(all_continuous() ~ "{mean} ± {sd}")) |>
   bold_labels()
 
 ## Descriptivos bivariados por sexo
 tbl_2 <-
   tbl_summary(tbl_data[genero %in% c("Masculino", "Femenino")] |> droplevels(),
-            by = genero, label = var_labels[-2], missing = "no") |>
+            by = genero, label = var_labels[-2], missing = "no",
+            statistic = list(all_continuous() ~ "{mean} ± {sd}")) |>
   bold_labels() |>
   add_difference(test = all_continuous() ~ "smd", include = all_continuous())
 
@@ -67,7 +69,8 @@ tbl_2 <-
 tbl_3 <-
   tbl_summary(
   data = tbl_data,
-  by = dolor_frecuente_3meses, label = var_labels[-8], missing = "no") |>
+  by = dolor_frecuente_3meses, label = var_labels[-8], missing = "no",
+  statistic = list(all_continuous() ~ "{mean} ± {sd}")) |>
   bold_labels() |>
   add_difference(test = all_continuous() ~ "smd", include = all_continuous())
 
@@ -78,6 +81,8 @@ tbl_final <- tbl_merge(tbls = list(tbl_1,tbl_2,tbl_3),
                                      "**Duración Dolor**"))
 
 print(tbl_final)
+
+saveRDS(tbl_final, file = "manuscript/tables/table-1.RDS")
 
 as_gt(tbl_final) |>
   gt::gtsave(filename = "manuscript/tables/table-1.html")

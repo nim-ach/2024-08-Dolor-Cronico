@@ -19,28 +19,4 @@ Variables independientes (a partir de objetivos):
 - Cronotipo: matutinidad_score (numerico), score_matutinidad (categorico)
 
 Variables de control:
-- edad, genero, universidad, nacionalidad, area_estudios, consumo_alcohol, consume_tabaco
-
-Propuesta de presentación de los resultados:
----
-## Caracterización de la muestra
-[Tamaño muestral, porporción de hombres/mujeres, edad, escala de dolor media]
-
-## Efecto de factores contextuales y sociodemogreaficos en el dolor
-[Efecto simple de cada variable de control sobre las variables de dolor]
-[Efecto ajustado de cada variable de control en un modelo saturado sobro las variables de dolor]
-
-## Efecto de la actividad física sobre el dolor
-[Efecto simple de cada variable de actividad física sobre cada variable de dolor]
-[Efecto de cada variable de actividad física sobre cada variable de dolor, ajustando por variables de control]
-
-## Efecto del cronotipo y calidad de sueño sobre el dolor
-
-### Cronotipo y dolor
-[Efecto simple de cada variable de cronotipo sobre cada variable de dolor]
-[Efecto de cada variable de cronotipo sobre cada variable de dolor, ajustando por variables de control]
-
-### Calidad de sueño y dolor
-[Efecto simple de cada variable de calidad de sueño sobre cada variable de dolor]
-[Efecto de cada variable de calidad de sueño sobre cada variable de dolor, ajustando por variables de control]
----
+- edad, genero, universidad, area_estudios, consumo_alcohol, consume_tabaco
