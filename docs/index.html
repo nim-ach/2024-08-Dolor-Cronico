@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>main_findings</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,16 +43,16 @@ div.csl-indent {
 }</style>
 
 
-<script src="_main_findings_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_main_findings_files/libs/quarto-html/quarto.js"></script>
-<script src="_main_findings_files/libs/quarto-html/popper.min.js"></script>
-<script src="_main_findings_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_main_findings_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_main_findings_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_main_findings_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_main_findings_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_main_findings_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_main_findings_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -86,28 +86,69 @@ window.Quarto = {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#análisis-estadístico" id="toc-análisis-estadístico" class="nav-link active" data-scroll-target="#análisis-estadístico"><span class="header-section-number">1</span> Análisis Estadístico</a>
+  <ul class="collapse">
+  <li><a href="#descriptivos" id="toc-descriptivos" class="nav-link" data-scroll-target="#descriptivos"><span class="header-section-number">1.1</span> Descriptivos</a></li>
+  <li><a href="#marco-de-análisis" id="toc-marco-de-análisis" class="nav-link" data-scroll-target="#marco-de-análisis"><span class="header-section-number">1.2</span> Marco de análisis</a></li>
+  <li><a href="#impacto-funcional-e-intensidad-del-dolor" id="toc-impacto-funcional-e-intensidad-del-dolor" class="nav-link" data-scroll-target="#impacto-funcional-e-intensidad-del-dolor"><span class="header-section-number">1.3</span> Impacto funcional e Intensidad del Dolor</a></li>
+  <li><a href="#frecuencia-del-dolor" id="toc-frecuencia-del-dolor" class="nav-link" data-scroll-target="#frecuencia-del-dolor"><span class="header-section-number">1.4</span> Frecuencia del dolor</a></li>
+  <li><a href="#estado-de-dolor-persistente" id="toc-estado-de-dolor-persistente" class="nav-link" data-scroll-target="#estado-de-dolor-persistente"><span class="header-section-number">1.5</span> Estado de dolor persistente</a></li>
+  <li><a href="#priors-e-hiperparámetros" id="toc-priors-e-hiperparámetros" class="nav-link" data-scroll-target="#priors-e-hiperparámetros"><span class="header-section-number">1.6</span> Priors e Hiperparámetros</a></li>
+  <li><a href="#reporte-de-indices" id="toc-reporte-de-indices" class="nav-link" data-scroll-target="#reporte-de-indices"><span class="header-section-number">1.7</span> Reporte de Indices</a></li>
+  <li><a href="#convergencia" id="toc-convergencia" class="nav-link" data-scroll-target="#convergencia"><span class="header-section-number">1.8</span> Convergencia</a></li>
+  </ul></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">2</span> Resultados</a>
+  <ul class="collapse">
+  <li><a href="#caracterización-de-la-muestra" id="toc-caracterización-de-la-muestra" class="nav-link" data-scroll-target="#caracterización-de-la-muestra"><span class="header-section-number">2.1</span> Caracterización de la muestra</a></li>
+  <li><a href="#efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor" id="toc-efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor" class="nav-link" data-scroll-target="#efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor"><span class="header-section-number">2.2</span> Efecto de factores contextuales y sociodemogreaficos en el dolor</a>
+  <ul class="collapse">
+  <li><a href="#edad" id="toc-edad" class="nav-link" data-scroll-target="#edad"><span class="header-section-number">2.2.1</span> Edad</a></li>
+  <li><a href="#genero" id="toc-genero" class="nav-link" data-scroll-target="#genero"><span class="header-section-number">2.2.2</span> Genero</a></li>
+  <li><a href="#universidad-de-estudio" id="toc-universidad-de-estudio" class="nav-link" data-scroll-target="#universidad-de-estudio"><span class="header-section-number">2.2.3</span> Universidad de estudio</a></li>
+  <li><a href="#área-de-estudio" id="toc-área-de-estudio" class="nav-link" data-scroll-target="#área-de-estudio"><span class="header-section-number">2.2.4</span> Área de estudio</a></li>
+  <li><a href="#consumo-de-alcohol" id="toc-consumo-de-alcohol" class="nav-link" data-scroll-target="#consumo-de-alcohol"><span class="header-section-number">2.2.5</span> Consumo de alcohol</a></li>
+  <li><a href="#hábito-tabáquico" id="toc-hábito-tabáquico" class="nav-link" data-scroll-target="#hábito-tabáquico"><span class="header-section-number">2.2.6</span> Hábito tabáquico</a></li>
+  </ul></li>
+  <li><a href="#efecto-de-la-actividad-física-sobre-el-dolor" id="toc-efecto-de-la-actividad-física-sobre-el-dolor" class="nav-link" data-scroll-target="#efecto-de-la-actividad-física-sobre-el-dolor"><span class="header-section-number">2.3</span> Efecto de la actividad física sobre el dolor</a>
+  <ul class="collapse">
+  <li><a href="#actividad-física" id="toc-actividad-física" class="nav-link" data-scroll-target="#actividad-física"><span class="header-section-number">2.3.1</span> Actividad física</a></li>
+  <li><a href="#gasto-energético" id="toc-gasto-energético" class="nav-link" data-scroll-target="#gasto-energético"><span class="header-section-number">2.3.2</span> Gasto energético</a></li>
+  </ul></li>
+  <li><a href="#efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor" id="toc-efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor" class="nav-link" data-scroll-target="#efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor"><span class="header-section-number">2.4</span> Efecto del cronotipo y calidad de sueño sobre el dolor</a>
+  <ul class="collapse">
+  <li><a href="#cronotipo-y-dolor" id="toc-cronotipo-y-dolor" class="nav-link" data-scroll-target="#cronotipo-y-dolor"><span class="header-section-number">2.4.1</span> Cronotipo y dolor</a></li>
+  <li><a href="#calidad-de-sueño-y-dolor" id="toc-calidad-de-sueño-y-dolor" class="nav-link" data-scroll-target="#calidad-de-sueño-y-dolor"><span class="header-section-number">2.4.2</span> Calidad de sueño y dolor</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
 
 
-<section id="análisis-estadístico" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-estadístico">Análisis Estadístico</h2>
-<section id="descriptivos" class="level3">
-<h3 class="anchored" data-anchor-id="descriptivos">Descriptivos</h3>
+<section id="análisis-estadístico" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Análisis Estadístico</h1>
+<section id="descriptivos" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="descriptivos"><span class="header-section-number">1.1</span> Descriptivos</h2>
 <p>Para los estadísticos descriptivos se reportaron la media y la desviación estándar (media ± sd) para las variables continuas, y la frecuencia absoluta (n) y relativa (%) para las variables categóricas.</p>
 </section>
-<section id="marco-de-análisis" class="level3">
-<h3 class="anchored" data-anchor-id="marco-de-análisis">Marco de análisis</h3>
+<section id="marco-de-análisis" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="marco-de-análisis"><span class="header-section-number">1.2</span> Marco de análisis</h2>
 <p>Utilizamos un marco bayesiano para explorar las complejas interacciones entre factores clave asociados con el dolor no oncológico. Los modelos bayesianos son preferibles a los métodos frecuentistas tradicionales porque pueden cuantificar la incertidumbre y estimar los parámetros del modelo de forma más exhaustiva. Además, la inferencia bayesiana permite la inclusión de conocimientos previos sobre los parámetros del modelo, lo que posibilita la integración de hallazgos existentes e investigaciones anteriores. El marco bayesiano proporciona distribuciones posteriores que permiten una interpretación probabilística de las estimaciones de los parámetros con intervalos creíbles que reflejan la incertidumbre de los mismos.</p>
 <p>Para evaluar el impacto de factores sociodemográficos, variables de actividad física, calidad del sueño y cronotipo, se desarrollaron cuatro modelos lineales generalizados bayesianos. Estos modelos se utilizaron para analizar el efecto de dichas variables en cuatro dominios del dolor: a) el impacto percibido del dolor en la funcionalidad, b) la intensidad percibida del dolor, c) la frecuencia reportada de episodios dolorosos, y d) la presencia de dolor persistente durante un periodo igual o mayor a 3 meses.</p>
 </section>
-<section id="impacto-funcional-e-intensidad-del-dolor" class="level3">
-<h3 class="anchored" data-anchor-id="impacto-funcional-e-intensidad-del-dolor">Impacto funcional e Intensidad del Dolor</h3>
+<section id="impacto-funcional-e-intensidad-del-dolor" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="impacto-funcional-e-intensidad-del-dolor"><span class="header-section-number">1.3</span> Impacto funcional e Intensidad del Dolor</h2>
 <p>Para evaluar el efecto del impacto percibido del dolor sobre la funcionalidad y la intensidad percibida de dolor, ambas escalas que van de 0 a 10, utilizamos un modelo beta-binomial bayesiano, parametrizado según la <a href="#eq-first-model-1" class="quarto-xref">Ecuación&nbsp;1</a>.</p>
 <p><span id="eq-first-model-1"><span class="math display">\[
 \begin{aligned}
@@ -124,8 +165,8 @@ b &amp;= (1 - \mu_i) \cdot \phi \\
 \end{aligned}
 \tag{2}\]</span></span></p>
 </section>
-<section id="frecuencia-del-dolor" class="level3">
-<h3 class="anchored" data-anchor-id="frecuencia-del-dolor">Frecuencia del dolor</h3>
+<section id="frecuencia-del-dolor" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="frecuencia-del-dolor"><span class="header-section-number">1.4</span> Frecuencia del dolor</h2>
 <p>La frecuencia del dolor, reportada como una variable ordinal de cinco niveles, se modeló utilizando un modelo de regresión ordinal bayesiano. Este modelo permitió evaluar la probabilidad acumulada de cada nivel de frecuencia, condicionado a las variables de interés, y se parametrizó según la <a href="#eq-first-model-3" class="quarto-xref">Ecuación&nbsp;3</a>.</p>
 <p><span id="eq-first-model-3"><span class="math display">\[
 \begin{aligned}
@@ -135,8 +176,8 @@ b &amp;= (1 - \mu_i) \cdot \phi \\
 \tag{3}\]</span></span></p>
 <p>Donde <span class="math inline">\(\alpha_k\)</span> son los umbrales específicos para cada nivel ordinal <span class="math inline">\(k\)</span>, y <span class="math inline">\(\beta_j\)</span> son los coeficientes de las variables independientes <span class="math inline">\(X_{ij}\)</span>. Los umbrales <span class="math inline">\(\alpha_k\)</span> se ordenan como parámetros del modelo: <span class="math inline">\(\alpha_0 = -\infty &lt; \alpha_1 &lt; \cdots &lt; \alpha_{k} = \infty\)</span>.</p>
 </section>
-<section id="estado-de-dolor-persistente" class="level3">
-<h3 class="anchored" data-anchor-id="estado-de-dolor-persistente">Estado de dolor persistente</h3>
+<section id="estado-de-dolor-persistente" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="estado-de-dolor-persistente"><span class="header-section-number">1.5</span> Estado de dolor persistente</h2>
 <p>Para valorar la probabilidad de dolor persistente por un periodo de tiempo igual o mayor a 3 meses, utilizamos un modelo de regresión logística bayesiana, parametrizado según la <a href="#eq-first-model-4" class="quarto-xref">Ecuación&nbsp;4</a>.</p>
 <p><span id="eq-first-model-4"><span class="math display">\[
 \begin{aligned}
@@ -146,47 +187,47 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
 \tag{4}\]</span></span></p>
 <p>En este modelo, <span class="math inline">\(y_i\)</span> denota la presencia o ausencia de dolor persistente, y <span class="math inline">\(p_i\)</span> es la probabilidad asociada. La función logit de <span class="math inline">\(p_i\)</span> se expresa como una combinación lineal de las variables independientes <span class="math inline">\(X_{ij}\)</span>, con coeficientes <span class="math inline">\(\beta_j\)</span> e intercepto <span class="math inline">\(\beta_0\)</span>.</p>
 </section>
-<section id="priors-e-hiperparámetros" class="level3">
-<h3 class="anchored" data-anchor-id="priors-e-hiperparámetros">Priors e Hiperparámetros</h3>
+<section id="priors-e-hiperparámetros" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="priors-e-hiperparámetros"><span class="header-section-number">1.6</span> Priors e Hiperparámetros</h2>
 <p>Para los coeficientes lineales, se eligieron priors con un efecto regularizador sobre los efectos principales, basados en una distribución normal centrados en cero y con una desviación estandar de 3, (i.e., <span class="math inline">\(\beta \sim \mathcal{N}(0,3)\)</span>), limitando el efecto de observaciones influyentes y mejorando la convergencia de los modelos.</p>
 <p>Para la estimación de los modelos, se usó el algoritmo No-U-Turn, variante del algoritmo Monte Carlo Hamiltoniano, por medio del paquete <em>brms</em> (v2.21.0) y <em>rstan</em> (v2.32.6). Los parámetros del algoritmo fueron 4 cadenas de Markov, 2000 iteraciones iniciales de preparación y 2500 iteraciones efectivas por cadena (10 mil en total).</p>
 </section>
-<section id="reporte-de-indices" class="level3">
-<h3 class="anchored" data-anchor-id="reporte-de-indices">Reporte de Indices</h3>
+<section id="reporte-de-indices" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="reporte-de-indices"><span class="header-section-number">1.7</span> Reporte de Indices</h2>
 <p>Siguiendo el marco <strong>S</strong>equential <strong>E</strong>ffect e<strong>X</strong>istence and s<strong>I</strong>gnificance <strong>T</strong>esting (SEXIT) para describir los efectos a partir de modelos bayesianos <span class="citation" data-cites="makowski2019indices">(<a href="#ref-makowski2019indices" role="doc-biblioref">Makowski et&nbsp;al. 2019</a>)</span>, se comunicaron la mediana y el IC<sub>95%</sub> (utilizando el intervalo de mayor densidad) como medida de centralidad e incertidumbre, la probabilidad de dirección (pd) como medida de existencia, la proporción de la distribución de probabilidad posterior del signo de la mediana que cae fuera de la región de equivalencia práctica (ROPE) como medida de significación práctica (ps), estimada como una décima parte (1/10 = 0. 1) de la DE de la variable de respuesta, y el factor de Bayes (BF<sub>10</sub>) utilizando la relación de densidad de Savage-Dickey contra el punto nulo que indica si el valor nulo se ha vuelto menos o más probable dados los datos observados <span class="citation" data-cites="heck2019caveat">(<a href="#ref-heck2019caveat" role="doc-biblioref">Heck 2019</a>)</span>, utilizando esto como una medida de la magnitud absoluta de la evidencia a favor o en contra de la hipótesis nula (de no efecto). Teniendo en cuenta que ROPE, y por tanto ps, son sensibles a la escala a nivel de predictor, se estandarizó la edad, así como los puntajes obtenidos de los cuestionarios.</p>
 <p>Para la interpretación de BF hemos considerado: BF = 1, ninguna evidencia; 1 &lt; BF &lt;= 3, anecdótico; 3 &lt; BF &lt;= 10, moderado; 10 &lt; BF &lt;= 30, fuerte; 30 &lt; BF &lt;= 100, muy fuerte; y BF &gt; 100, como evidencia extrema <span class="citation" data-cites="jeffreys1998theory">(<a href="#ref-jeffreys1998theory" role="doc-biblioref">Jeffreys 1998</a>)</span>. Para la proporción de la posterior en el ROPE consideramos: &lt; 1%, significativo; &lt; 2,5%, probablemente significativo; ≤ 97,5% &amp; ≥ 2,5%, significación indecisa; &gt; 97,5%, probablemente insignificante; &gt; 99%, insignificante <span class="citation" data-cites="makowski2019indices">(<a href="#ref-makowski2019indices" role="doc-biblioref">Makowski et&nbsp;al. 2019</a>)</span>.</p>
 </section>
-<section id="convergencia" class="level3">
-<h3 class="anchored" data-anchor-id="convergencia">Convergencia</h3>
+<section id="convergencia" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="convergencia"><span class="header-section-number">1.8</span> Convergencia</h2>
 <p>La convergencia y estabilidad del muestreo bayesiano se ha evaluado mediante R-hat, que debe ser inferior a 1,01 <span class="citation" data-cites="vehtari2019rank">(<a href="#ref-vehtari2019rank" role="doc-biblioref">Vehtari et&nbsp;al. 2019</a>)</span>, el tamaño efectivo de la muestra (ESS), que debe ser superior a 1000 <span class="citation" data-cites="brms">(<a href="#ref-brms" role="doc-biblioref">Bürkner 2017</a>)</span>, y la inspección visual de los traceplots y las comprobaciones predictivas posteriores. Todos los análisis estadísticos se calcularon e implementaron en el lenguaje de programación R <span class="citation" data-cites="rlanguage">(<a href="#ref-rlanguage" role="doc-biblioref">R Core Team 2021</a>)</span>.</p>
 </section>
 </section>
-<section id="resultados" class="level1 page-columns page-full">
-<h1>Resultados</h1>
-<section id="caracterización-de-la-muestra" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="caracterización-de-la-muestra">Caracterización de la muestra</h2>
+<section id="resultados" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Resultados</h1>
+<section id="caracterización-de-la-muestra" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="caracterización-de-la-muestra"><span class="header-section-number">2.1</span> Caracterización de la muestra</h2>
 <p>La muestra evalauda consistió de 157 individuos (52 hombres, 98 mujeres y 7 no desearon responder), de los cuales 116 (73.1%) reportaron tener dolor frecuente por más de 3 meses, mientras que solo 41 (26.1%) reportaron dolor por un tiempo menor al mencionado. Las características de la muestra evaluada pueden observarse en la tabla 1.</p>
 <p><strong>Tabla 1</strong>. Características sociodemográficas, de actividad física, calidad de sueño y cronotipo de los participantes del estudio. Además de las características globales de la muestra, se presentan las diferencias entre grupos de sexo y duración de dolor.</p>
-<div class="column-page-inset">
+<div class="column-page-inset-left">
 <div class="cell">
 <div class="cell-output-display">
-<div id="ndijfunuin" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ndijfunuin table {
+<div id="mktabuncmy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mktabuncmy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ndijfunuin thead, #ndijfunuin tbody, #ndijfunuin tfoot, #ndijfunuin tr, #ndijfunuin td, #ndijfunuin th {
+#mktabuncmy thead, #mktabuncmy tbody, #mktabuncmy tfoot, #mktabuncmy tr, #mktabuncmy td, #mktabuncmy th {
   border-style: none;
 }
 
-#ndijfunuin p {
+#mktabuncmy p {
   margin: 0;
   padding: 0;
 }
 
-#ndijfunuin .gt_table {
+#mktabuncmy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -212,12 +253,12 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-left-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_caption {
+#mktabuncmy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ndijfunuin .gt_title {
+#mktabuncmy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -229,7 +270,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-bottom-width: 0;
 }
 
-#ndijfunuin .gt_subtitle {
+#mktabuncmy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -241,7 +282,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-top-width: 0;
 }
 
-#ndijfunuin .gt_heading {
+#mktabuncmy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -253,13 +294,13 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-right-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_bottom_border {
+#mktabuncmy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_col_headings {
+#mktabuncmy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -274,7 +315,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-right-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_col_heading {
+#mktabuncmy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -294,7 +335,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   overflow-x: hidden;
 }
 
-#ndijfunuin .gt_column_spanner_outer {
+#mktabuncmy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -306,15 +347,15 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 4px;
 }
 
-#ndijfunuin .gt_column_spanner_outer:first-child {
+#mktabuncmy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ndijfunuin .gt_column_spanner_outer:last-child {
+#mktabuncmy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ndijfunuin .gt_column_spanner {
+#mktabuncmy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -326,11 +367,11 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   width: 100%;
 }
 
-#ndijfunuin .gt_spanner_row {
+#mktabuncmy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ndijfunuin .gt_group_heading {
+#mktabuncmy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -356,7 +397,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   text-align: left;
 }
 
-#ndijfunuin .gt_empty_group_heading {
+#mktabuncmy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -371,15 +412,15 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   vertical-align: middle;
 }
 
-#ndijfunuin .gt_from_md > :first-child {
+#mktabuncmy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ndijfunuin .gt_from_md > :last-child {
+#mktabuncmy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ndijfunuin .gt_row {
+#mktabuncmy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -398,7 +439,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   overflow-x: hidden;
 }
 
-#ndijfunuin .gt_stub {
+#mktabuncmy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -411,7 +452,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 5px;
 }
 
-#ndijfunuin .gt_stub_row_group {
+#mktabuncmy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -425,15 +466,15 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   vertical-align: top;
 }
 
-#ndijfunuin .gt_row_group_first td {
+#mktabuncmy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ndijfunuin .gt_row_group_first th {
+#mktabuncmy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ndijfunuin .gt_summary_row {
+#mktabuncmy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -443,16 +484,16 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 5px;
 }
 
-#ndijfunuin .gt_first_summary_row {
+#mktabuncmy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_first_summary_row.thick {
+#mktabuncmy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ndijfunuin .gt_last_summary_row {
+#mktabuncmy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -462,7 +503,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-bottom-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_grand_summary_row {
+#mktabuncmy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -472,7 +513,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 5px;
 }
 
-#ndijfunuin .gt_first_grand_summary_row {
+#mktabuncmy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -482,7 +523,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-top-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_last_grand_summary_row_top {
+#mktabuncmy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -492,11 +533,11 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-bottom-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_striped {
+#mktabuncmy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ndijfunuin .gt_table_body {
+#mktabuncmy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -505,7 +546,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-bottom-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_footnotes {
+#mktabuncmy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -519,7 +560,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-right-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_footnote {
+#mktabuncmy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -528,7 +569,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 5px;
 }
 
-#ndijfunuin .gt_sourcenotes {
+#mktabuncmy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -542,7 +583,7 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   border-right-color: #D3D3D3;
 }
 
-#ndijfunuin .gt_sourcenote {
+#mktabuncmy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -550,72 +591,72 @@ y_i \mid X_i &amp;\sim \text{Bernoulli}\left(p_i\right) \\
   padding-right: 5px;
 }
 
-#ndijfunuin .gt_left {
+#mktabuncmy .gt_left {
   text-align: left;
 }
 
-#ndijfunuin .gt_center {
+#mktabuncmy .gt_center {
   text-align: center;
 }
 
-#ndijfunuin .gt_right {
+#mktabuncmy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ndijfunuin .gt_font_normal {
+#mktabuncmy .gt_font_normal {
   font-weight: normal;
 }
 
-#ndijfunuin .gt_font_bold {
+#mktabuncmy .gt_font_bold {
   font-weight: bold;
 }
 
-#ndijfunuin .gt_font_italic {
+#mktabuncmy .gt_font_italic {
   font-style: italic;
 }
 
-#ndijfunuin .gt_super {
+#mktabuncmy .gt_super {
   font-size: 65%;
 }
 
-#ndijfunuin .gt_footnote_marks {
+#mktabuncmy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ndijfunuin .gt_asterisk {
+#mktabuncmy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ndijfunuin .gt_indent_1 {
+#mktabuncmy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ndijfunuin .gt_indent_2 {
+#mktabuncmy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ndijfunuin .gt_indent_3 {
+#mktabuncmy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ndijfunuin .gt_indent_4 {
+#mktabuncmy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ndijfunuin .gt_indent_5 {
+#mktabuncmy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ndijfunuin .katex-display {
+#mktabuncmy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ndijfunuin div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mktabuncmy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1531,44 +1572,155 @@ N = 41</p>
 </div>
 </div>
 </section>
-<section id="efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor" class="level2">
-<h2 class="anchored" data-anchor-id="efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor">Efecto de factores contextuales y sociodemogreaficos en el dolor</h2>
-<section id="edad" class="level3">
-<h3 class="anchored" data-anchor-id="edad">Edad</h3>
+<section id="efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="efecto-de-factores-contextuales-y-sociodemogreaficos-en-el-dolor"><span class="header-section-number">2.2</span> Efecto de factores contextuales y sociodemogreaficos en el dolor</h2>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-factores" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-factores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-factores-1.svg" id="fig-factores" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-factores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 1</strong>. Factores sociodemográficos y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<section id="edad" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="edad"><span class="header-section-number">2.2.1</span> Edad</h3>
 <p>Al evaluar el efecto de la edad sobre los distintos dominios de dolor, observamos evidencia moderada a fuerte a favor de la hipótesis nula, lo que sugiere que la edad no tiene un efecto sobre el impacto funcional del dolor (<span class="math inline">\(\beta\)</span> = 0.05, CI 95% [-0.16, 0.24], pd = 0.67, ps = 0.08, ROPE = 0.93, BF10 = 0.037), ni sobre la intensidad reportada de dolor (<span class="math inline">\(\beta\)</span> = 0.01, CI 95% [-0.12, 0.15], pd = 0.57, ps = 0.00, ROPE = 1.00, BF10 = 0.023), ni sobre la frecuencia de dolor (<span class="math inline">\(\beta\)</span> = 0.15, CI 95% [-0.20, 0.51], pd = 0.80, ps = 0.44, ROPE = 0.56, BF10 = 0.084), así como tampoco influyó sobre la probabilidad de tener dolor persistente (<span class="math inline">\(\beta\)</span> = -0.02, CI 95% [-0.36, 0.38], pd = 0.53, ps = 0.18, ROPE = 0.70, BF10 = 0.063).</p>
 <p>Al controlar por la influencia de los demás factores, observamos que el efecto de la edad sobre la repercusión funcional del dolor es negativa (<span class="math inline">\(\beta\)</span> = -0.10, CI 95% [-0.37, 0.16]) con un 77% de probabilidad (pd) y una baja probabilidad de ser significativo (ps = 0.27), sin embargo, el efecto marginal de la edad sigue brindando mayor evidencia a favor de la hipótesis nula (BF10 = 0.057). En este sentido, la magnitud de evidencia observada para esta variable en modelos ajustados, no otorgó mayor evidencia a favor de la presencia de un efecto (intensidad de dolor, BF10 = 0.033; frecuencia de dolor, BF10 = 0.118; probabilidad de dolor persistente, BF10 = 0.096).</p>
 </section>
-<section id="genero" class="level3">
-<h3 class="anchored" data-anchor-id="genero">Genero</h3>
+<section id="genero" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="genero"><span class="header-section-number">2.2.2</span> Genero</h3>
 <p>Al evaluar el efecto del género sobre los distintos dominios de dolor, observamos un 82% de probabilidad que las mujeres experimentan un mayor impacto funcional asociado al dolor (<span class="math inline">\(\beta\)</span> = 0.39, CI 95% [-0.07, 0.89], pd = 0.95, ps = 0.82, ROPE = 0.330, BF10 = 0.084), una mayor intensidad reportada de dolor (<span class="math inline">\(\beta\)</span> = 0.49, CI 95% [0.16, 0.82], pd = 0.99, ps = 0.97, ROPE = 0.009, BF10 = 4.55) y cerca de 7 veces más probabilidades de presentar dolor persistente (<span class="math inline">\(\exp(\beta)\)</span> = 6.96) que su contraparte masculina (<span class="math inline">\(\beta\)</span> = 1.94, CI 95% [1.16, 2.74], pd = 1.00, ps = 1.00, ROPE = 0.00, BF10 = 2720). Pese a lo anterior, no observamos que el efecto del género fuese significativo sobre la frecuencia del dolor (<span class="math inline">\(\beta\)</span> = -0.19, CI 95% [-1.03, 0.64], pd = 0.67, ps = 0.51, ROPE = 0.32, BF10 = 0.161).</p>
 <p>Al controlar por la influencia de los demás factores, observamos que la magnitud de la diferencia observada entre hombres y mujeres es mayor en relación al impacto funcional del dolor (<span class="math inline">\(\beta\)</span> = 0.74, CI 95% [ 0.22, 1.28], BF10 = 4.50). Del mismo modo, valorar el efecto marginal del genero, observamos que las mujeres realmente experimentan 10 veces más probabilidades de presentar dolor persistente (<span class="math inline">\(\exp(\beta)\)</span> = 10.1, <span class="math inline">\(\beta\)</span> = 2.31, CI 95% [1.37, 3.34], pd = 1.00, ps = 1.00, ROPE = 0.00, BF10 = 9030). Por otra parte, la evidencia aportada pora los otros dominios de dolor no se vió modificado por la inclusión de las otras variables en el modelo (intensidad de dolor, BF10 = 2.04; frecuencia de dolor, BF10 = 0.204).</p>
 </section>
-<section id="universidad-de-estudio" class="level3">
-<h3 class="anchored" data-anchor-id="universidad-de-estudio">Universidad de estudio</h3>
+<section id="universidad-de-estudio" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="universidad-de-estudio"><span class="header-section-number">2.2.3</span> Universidad de estudio</h3>
+<p>Cuando comparamos el efecto de formar parte de una casa de estudios en particular, observamos evidencia moderada que apoyaba la hipótesis nula, sugiriendo que la universidad no influye sobre el impacto funcional percibido (BF10 = 0.129), intensidad (BF10 = 0.059), ni sobre la frecuencia de dolor percibida (BF10 = 0.220). Por otro lado, hallamos evidencia anecdótica (BF10 = 0.333) que sugiere que probablemente existe un efecto significativo deesta variable (pd = 0.91, ps = 0.81), en relación que la Universidad de Aysén presenta un 77% mayores probabilidades de presentar dolor persistente que aquellos en la Universidad de Magallanes (<span class="math inline">\(\exp(\beta)\)</span> = 1.77, <span class="math inline">\(\beta\)</span> = 0.57, CI 95% [-0.28, 1.49], ROPE = 0.15). Los modelos completamente ajustados no mostraron diferencias respecto de los modelos simples.</p>
 </section>
-<section id="área-de-estudio" class="level3">
-<h3 class="anchored" data-anchor-id="área-de-estudio">Área de estudio</h3>
+<section id="área-de-estudio" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="área-de-estudio"><span class="header-section-number">2.2.4</span> Área de estudio</h3>
+<p>Al valorar el efecto de las diferentes áreas de estudios sobre el dolor, observamos que aquellos que estudian una área relacionada con la ingeniería, esperimentan un mayor impacto en su funcionalidad debido al dolor comparado con aquellos que estudian una carrera relacionada con el área de la salud (<span class="math inline">\(\exp(\beta)\)</span> = 2.1, <span class="math inline">\(\beta\)</span> = 0.74, CI 95% [0.11, 1.38], pd = 0.99, ps = 0.98, ROPE = 0.00), o de las ciencias sociales (<span class="math inline">\(\exp(\beta)\)</span> = 2.14, <span class="math inline">\(\beta\)</span> = 0.76, CI 95% [-0.28, 1.77], pd = 0.93, ps = 0.90, ROPE = 0.05). En relación a la probabilidad de experimentar dolor persistente, se observó que aquellos que estudian una ingeniería presentan 7.69 veces más probabilidades que aquellos que estudian una carrera de las ciencias sociales (<span class="math inline">\(\exp(\beta)\)</span> = 7.69, <span class="math inline">\(\beta\)</span> = 2.04, CI 95% [0.29, 3.92], ps = 0.99, ps = 0.99, ROPE = 0.00). Un efecto similar pudo observarse en relación a aquellos que estudian una carrera del área de la salud comparados con aquellos del área social (<span class="math inline">\(\exp(\beta)\)</span> = 3.82, <span class="math inline">\(\beta\)</span> = 1.34, CI 95% [-0.14, 2.90], ps = 0.96, ps = 0.95, ROPE = 0.02).</p>
 </section>
-<section id="consumo-de-alcohol" class="level3">
-<h3 class="anchored" data-anchor-id="consumo-de-alcohol">Consumo de alcohol</h3>
+<section id="consumo-de-alcohol" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="consumo-de-alcohol"><span class="header-section-number">2.2.5</span> Consumo de alcohol</h3>
+<p>El efecto marginal del consumo del alcohol, independiente de otros factores, se asoció únicamente a un menor impacto funcional de dolor (<span class="math inline">\(\exp(\beta)\)</span> = 0.53, <span class="math inline">\(\beta\)</span> = -0.64, CI 95% [-1.15, -0.15], ps = 0.99, ps = 0.99, ROPE = 0.00, BF10 = 2.29), sin embargo para el resto de los dominios observados, el estatus de consumo de al menos una vez por semana no se asoció a un ningún efecto sobre el dolor (intensidad del dolor, BF10 = 0.067; frecuencia del dolor, BF10 = 0.301; probabilidad de dolor persistente, BF10 = 0.218).</p>
 </section>
-<section id="hábito-tabáquico" class="level3">
-<h3 class="anchored" data-anchor-id="hábito-tabáquico">Hábito tabáquico</h3>
+<section id="hábito-tabáquico" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="hábito-tabáquico"><span class="header-section-number">2.2.6</span> Hábito tabáquico</h3>
+<p>A diferencia de lo observado en el caso del consumo de alcohol, el consumo de tabaco se asoció a un incremento en el impacto funcional asociado al dolor (<span class="math inline">\(\exp(\beta)\)</span> = 1.9, <span class="math inline">\(\beta\)</span> = 0.64, CI 95% [0.06, 1.25], ps = 0.98, ps = 0.94, ROPE = 0.04, BF10 = 0.997) y a la frecuencia de cuadros dolorosos experimentados por los sujetos (<span class="math inline">\(\exp(\beta)\)</span> = 3.94, <span class="math inline">\(\beta\)</span> = 1.37, CI 95% [0.29, 2.49], ps = 0.99, ps = 0.98, ROPE = 0.00, BF10 = 4.05). Encontramos evidencia moderada de que el consumo de tabaco no es un factor influyente en la intensidad de dolor percibido (BF10 = 0.158, 1/BF10 = 6.33) o en la probabilidad de presentar dolor persistente (BF10 = 0.209, 1/BF10 = 4.78).</p>
 </section>
 </section>
-<section id="efecto-de-la-actividad-física-sobre-el-dolor" class="level2">
-<h2 class="anchored" data-anchor-id="efecto-de-la-actividad-física-sobre-el-dolor">Efecto de la actividad física sobre el dolor</h2>
-<p>[Efecto simple de cada variable de actividad física sobre cada variable de dolor] [Efecto de cada variable de actividad física sobre cada variable de dolor, ajustando por variables de control]</p>
+<section id="efecto-de-la-actividad-física-sobre-el-dolor" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="efecto-de-la-actividad-física-sobre-el-dolor"><span class="header-section-number">2.3</span> Efecto de la actividad física sobre el dolor</h2>
+<section id="actividad-física" class="level3 page-columns page-full" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="actividad-física"><span class="header-section-number">2.3.1</span> Actividad física</h3>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-ipaq" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ipaq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-ipaq-1.svg" id="fig-ipaq" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-ipaq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 2</strong>. Niveles de actividad física y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>Al valorar los niveles de actividad física con el dolor, se observó que aquellos individuos con un nivel bajo de actividad física parecieran experimentar un mayor impacto funcional asociado al dolor que aquellos con un nivel moderado de actividad física (<span class="math inline">\(\exp(\beta)\)</span> = 2.05, <span class="math inline">\(\beta\)</span> = 0.72, CI 95% [-0.07, 1.52], ps = 0.96, ps = 0.91, ROPE = 0.07, BF10 = 0.686), sin embargo, esta diferencia no se observó cuando se comparó con aquellos en el nivel alto de actividad física (<span class="math inline">\(\exp(\beta)\)</span> = 1.35, <span class="math inline">\(\beta\)</span> = 0.30, CI 95% [-0.33, 0.92], ps = 0.84, ps = 0.65, ROPE = 0.30, BF10 = 0.170). No se observaron diferencias para los demás dominios de dolor entre niveles de actividad.</p>
 </section>
-<section id="efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor" class="level2">
-<h2 class="anchored" data-anchor-id="efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor">Efecto del cronotipo y calidad de sueño sobre el dolor</h2>
-<section id="cronotipo-y-dolor" class="level3">
-<h3 class="anchored" data-anchor-id="cronotipo-y-dolor">Cronotipo y dolor</h3>
-<p>[Efecto simple de cada variable de cronotipo sobre cada variable de dolor] [Efecto de cada variable de cronotipo sobre cada variable de dolor, ajustando por variables de control]</p>
+<section id="gasto-energético" class="level3 page-columns page-full" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="gasto-energético"><span class="header-section-number">2.3.2</span> Gasto energético</h3>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-mets" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-mets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-mets-1.svg" id="fig-mets" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-mets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 3</strong>. Gasto energético asociado a la actividad física y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>Los equivalentes metabólicos (METs), asociados al gasto energético, se vieron asociados con una alta probabilidad posterior a una mayor intensidad de dolor a mayor gasto energético (<span class="math inline">\(\exp(\beta)\)</span> = 1.17, <span class="math inline">\(\beta\)</span> = 0.16, CI 95% [-0.02, 0.36], pd = 0.95), sin embargo, la probabilidad posterior asociada a un efecto significativo es baja (ps = 0.42), con una gran proporción de la distribución posterior en la zona de equivalencia práctica (ROPE = 0.58), aportando más evidencia a la hipótesis nula después de observar los datos (BF10 = 0.120). Los datos actuales aportan mayor evidencia a favor de la hipótesis nula, sugiriendo que el gasto energético no se relaciona con el impacto funcional asociado al dolor (BF10 = 0.081), la frecuencia del dolor percibido (BF10 = 0.085) o con la probabilidad asociada a la permanencia del dolor por más de tres meses (BF10 = 0.106).</p>
 </section>
-<section id="calidad-de-sueño-y-dolor" class="level3">
-<h3 class="anchored" data-anchor-id="calidad-de-sueño-y-dolor">Calidad de sueño y dolor</h3>
-<p>[Efecto simple de cada variable de calidad de sueño sobre cada variable de dolor] [Efecto de cada variable de calidad de sueño sobre cada variable de dolor, ajustando por variables de control]</p>
+</section>
+<section id="efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="efecto-del-cronotipo-y-calidad-de-sueño-sobre-el-dolor"><span class="header-section-number">2.4</span> Efecto del cronotipo y calidad de sueño sobre el dolor</h2>
+<section id="cronotipo-y-dolor" class="level3 page-columns page-full" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="cronotipo-y-dolor"><span class="header-section-number">2.4.1</span> Cronotipo y dolor</h3>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-crono-cat" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-crono-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-crono-cat-1.svg" id="fig-crono-cat" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-crono-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 4</strong>. Nivel de matutinidad y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>Comparados con los individuos categorizados con un nivel de matutinidad equivalente a vespertinos extremos, observamos un menor impacto funcional asociado al dolor en aquellos con un nivel moderado de matutinidad (<span class="math inline">\(\beta\)</span> = -1.24, CI 95% [-2.39, -0.17], ps = 0.98, ps = 0.97, ROPE = 0.00, BF10 = 2.42), así como en aquellos considerados como matutinos moderados (<span class="math inline">\(\beta\)</span> = -1.38, CI 95% [-2.74, -0.07], ps = 0.97, ps = 0.96, ROPE = 0.01, BF10 = 2.01). Un efecto similar, pero menos marcado se observó en al comparar a los vespertinos moderados con los extremos, observando un menor impacto funcional atribuible al dolor en los primeros (<span class="math inline">\(\beta\)</span> = -1.00, CI 95% [-2.16, 0.13], ps = 0.95, ps = 0.93, ROPE = 0.05, BF10 = 0.863). No se evidenció un efecto adicional de la categoría de matutinidad sobre los otros dominios del dolor.</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-crono-score" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-crono-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-crono-score-1.svg" id="fig-crono-score" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-crono-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 5</strong>. Puntaje de matutinidad y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>Cuando usamos el puntaje de matutinidad para valorar el efecto de la matutinidad sobre el dolor, observamos que el tener un mayor puntaje, lo que se asocia a ser una persona más matutina, se asoció con un impacto funcional asociado al dolor más bajo (<span class="math inline">\(\beta\)</span> = -0.03, CI 95% [-0.06, 0.00], ps = 0.98), sin embargo, la magnitud del efecto observado puede considerarse insignificante desde un sentido práctico (ps = 0.00, ROPE = 1.00), aportando evidencia fuerte a favor de la hipótesis nula (BF10 = 0.069, 1/BF10 = 14.49). El puntaje de matutinidad no se asoció a otros dominios de dolor después de ajustar por variables sociodemográficas.</p>
+</section>
+<section id="calidad-de-sueño-y-dolor" class="level3 page-columns page-full" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="calidad-de-sueño-y-dolor"><span class="header-section-number">2.4.2</span> Calidad de sueño y dolor</h3>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-psqi-score" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-psqi-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-psqi-score-1.svg" id="fig-psqi-score" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-psqi-score-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 6</strong>. Puntaje del PSQI y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>En relación al puntaje total del PSQI, que un mayor puntaje se traduce en peor calidad de sueño, observamos que a mayor puntaje existe un mayor impacto funcional asociado al dolor (<span class="math inline">\(\beta\)</span> = 0.06, CI 95% [0.00, 0.12], pd = 0.97), sin embargo y debido a la magnitud del efecto observado, este no puede considerarse significativo en un sentido practico (ps = 0.00, ROPE = 1.00), aportando evidencia fuerte a favor de la hipótesis nula (BF10 = 0.058, 1/BF10 = 17.24). En relación a la frecuencia reportada de dolor percibido, observamos que por cada incremento en 1 desviación estándar en el puntaje del PSQI, existe un 26% mayores probabilidades de observar una mayor frecuencia de dolor (<span class="math inline">\(\exp(\beta)\)</span> = 1.26, <span class="math inline">\(\beta\)</span> = 0.23, CI 95% [0.11, 0.37], pd = 1.00, ps = 0.78, ROPE = 0.21, BF10 = 10.34). Por otro lado, la evidencia obtenida después de observar los datos, provee evidencia muy fuerte a favor de la ausencia de un efecto entre el puntaje del PSQI y la intensidad percibida del dolor (BF10 = 0.017, 1/BF10 = 58.82), así como evidencia fuerte respecto a la hipótesis nula en la probabilidad de presentar dolor persistente (BF10 = 0.054, 1/BF10 = 18.52).</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-psqi-horas" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-psqi-horas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="index_files/figure-html/fig-psqi-horas-1.svg" id="fig-psqi-horas" class="img-fluid figure-img column-screen-inset-left">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-psqi-horas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figura 7</strong>. Horas de sueño por noche y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).</p>
+<p>En el caso de las horas de sueño, evidencia fuerte a muy fuerte a favor de la hipotesis nula se obtuvo después de observar los datos, indicando que las horas de sueño no ejercen ninguna influencia significativa sobre el impacto funcional asociado al dolor (ROPE = 1.00, BF10 = 0.027), intensidad percibida del dolor (ROPE = 1.00, BF10 = 0.019), frecuencia reportada del dolor percibido (ROPE = 0.85, BF10 = 0.046) y de la probabilidad asociada a la presencia de dolor persistente (ROPE = 0.79, BF10 = 0.052).</p>
 
 </section>
 </section>

@@ -50,7 +50,7 @@ bayesian_bernoulli <- function(formula, data, file, ...) {
   )
 }
 
-ms1_score_ipaq |> (
+mc1_pittsburg_horasdormidas |> (
   function(m, var, compare = TRUE, summary = TRUE, .f = NULL) {
     if (is.null(.f)) {
       .f <- function(i) return(i)
@@ -68,7 +68,6 @@ ms1_score_ipaq |> (
         do.call(what = expand.grid)
     }
 
-    browser()
     ind <- grep(var_char, names(newdat), ignore.case = TRUE)
     if (length(ind) == 0) {
       stop("There is no \"var\" variable in the data of the model provided")
@@ -131,4 +130,4 @@ ms1_score_ipaq |> (
     out|>
       .f()
   }
-)(score_ipaq)
+)(pittsburg_horasdormidas)
