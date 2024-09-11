@@ -1,0 +1,85 @@
+---
+title: "Análisis Estadístico"
+author: "Matías Castillo-Aguilar"
+format: docx
+editor: visual
+code-fold: true
+fig-width: 8
+fig-height: 6
+fig-format: png
+fig-dpi: 400
+execute: 
+  warning: false
+lang: "es"
+---
+
+```{r}
+#| include: false
+## Source work file
+source(file = "analysis.R")
+```
+## Análsis y resultados
+
+**H1**: En la universidad de Aysén las mujeres presentan números más altos de ansiedad que en la Universidad de Magallanes.
+
+```{r}
+#| echo: false
+stat_p1[, c(1,3,4,5,6,7,8)] |> 
+  flextable::flextable() |> 
+  flextable::autofit()
+```
+
+**Análisis y resultado**: Un análisis basado en la prueba de suma de rangos de Wilcoxon-Mann-Whitney mostró que los niveles de ansiedad para las mujeres no es diferente al de los hombres en la Universidad de Aysén, sin embargo, esta hipótesis si pudo evidenciarse para las mujeres en la Universidad de Magallanes.
+
+```{r}
+#| echo: false
+fig_p1
+```
+
+**H2**: En la universidad de Aysén las mujeres presentan números más altos de depresión que en la Universidad de Magallanes.
+
+```{r}
+#| echo: false
+stat_p2[, c(1,3,4,5,6,7,8)] |> 
+  flextable::flextable() |> 
+  flextable::autofit()
+```
+
+**Análisis y resultado**: Un análisis basado en la prueba de suma de rangos de Wilcoxon-Mann-Whitney mostró que los niveles de depresión para las mujeres no es diferente al de los hombres en la Universidad de Aysén, sin embargo, esta hipótesis si pudo evidenciarse para las mujeres en la Universidad de Magallanes.
+
+```{r}
+#| echo: false
+fig_p2
+```
+
+**H3**: En la Universidad de Magallanes las personas que consumen alcohol son en mayor proporción mujeres.
+
+```{r}
+#| echo: false
+stat_p3[[2]][, c(1,2,3,6,7,8)] |> 
+  flextable::flextable() |> 
+  flextable::autofit()
+```
+
+**Análisis y resultado**: Un análisis basado en la prueba de bondad de ajuste de chi cuadrado ($\chi^2$) por pares mostró que la proporción de mujeres que consumen alcohol es significativamente mayor en la universidad de magallanes ($\chi^2$ (1) = 5.12, p = 0.024), al igual que en la universidad de Magallanes ($\chi^2$ (1) = 3.86, p = 0.050).
+
+```{r}
+#| echo: false
+fig_p3
+```
+
+**H4**: Las mujeres experimentan mayor sintomatología depresiva y ansiosa que los hombres, pero los hombres experimentan mayor estrés académico.
+
+```{r}
+#| echo: false
+stat_p4[, c(1,3,4,5,6,7,8)] |> 
+  flextable::flextable() |> 
+  flextable::autofit()
+```
+
+**Análisis y resultado**: Un análisis basado en la prueba de suma de rangos de Wilcoxon-Mann-Whitney mostró que los niveles de depresión (BDI) y asiedad (BAI) son más elevados en las mujeres, sin embargo, contrario a lo inicialmente hipotetizado, las mujeres igual experimentaron un mayor estrés académico (EA) comaprado con su contraparte masculina.
+
+```{r}
+#| echo: false
+fig_p4
+```

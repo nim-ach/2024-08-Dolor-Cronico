@@ -456,3 +456,4 @@ chronic <- copy(data)
 rm(data)
 
 save(chronic, file = "data/chronic.RData")
+fwrite(chronic, file = "data-raw/chronic.csv")
