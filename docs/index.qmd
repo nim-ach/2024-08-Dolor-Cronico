@@ -1,4 +1,4 @@
---- 
+---
 format: 
   html:
     code-fold: TRUE
@@ -13,6 +13,8 @@ toc: true
 toc-title: "Índice"
 number-sections: true
 fig-responsive: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Análisis Estadístico
@@ -141,75 +143,74 @@ mc4_factores <- readRDS("../models/factores-y-dolor/mc4_factores.RDS")
 p1 <- local({
   posterior <- mc1_factores |> 
     as_draws_df(variable = "^b", regex = T)
-  names(posterior) <- c("Intercepto", "Edad (+1 SD)", "Genero: (Femenino) - (Masculino)", "Universidad: (Aysén) - (Magallanes)", "Área de estudio: (Salud) - (Ingeniería)", "Área de estudio: (Social) - (Ingeniería)", "Alcohol: (No) - (Sí)", "Tabaco: (No) - (Sí)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Intercept", "Age (+1 SD)", "Sex:\n(Female) - (Male)", "University:\n(Aysén) - (Magallanes)", "Study area:\n(Healthcare) - (Engineer)", "Study area:\n(Social Sciences) - (Engineer)", "Alcohol:\n(No) - (Yes)", "Tobaco:\n(No) - (Yes)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_factores |> 
     as_draws_df(variable = "^b", regex = T)
-  names(posterior) <- c("Intercepto", "Edad (+1 SD)", "Genero: (Femenino) - (Masculino)", "Universidad: (Aysén) - (Magallanes)", "Área de estudio: (Salud) - (Ingeniería)", "Área de estudio: (Social) - (Ingeniería)", "Alcohol: (No) - (Sí)", "Tabaco: (No) - (Sí)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Intercept", "Age (+1 SD)", "Sex:\n(Female) - (Male)", "University:\n(Aysén) - (Magallanes)", "Study area:\n(Healthcare) - (Engineer)", "Study area:\n(Social Sciences) - (Engineer)", "Alcohol:\n(No) - (Yes)", "Tabaco:\n(No) - (Yes)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
   posterior[!grepl("Intercepto", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_factores |> 
     as_draws_df(variable = "^b", regex = T)
-  names(posterior) <- c("Intercepto [1]", "Intercepto [2]", "Intercepto [3]", "Intercepto [4]", "Edad (+1 SD)", "Genero: (Femenino) - (Masculino)", "Universidad: (Aysén) - (Magallanes)", "Área de estudio: (Salud) - (Ingeniería)", "Área de estudio: (Social) - (Ingeniería)", "Alcohol: (No) - (Sí)", "Tabaco: (No) - (Sí)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Intercept [1]", "Intercept [2]", "Intercept [3]", "Intercept [4]", "Age (+1 SD)", "Sexo:\n(Female) - (Male)", "University:\n(Aysén) - (Magallanes)", "Study area:\n(Healthcare) - (Engineer)", "Study area:\n(Social Sciences) - (Engineer)", "Alcohol:\n(No) - (Yes)", "Tabaco:\n(No) - (Yes)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_factores |> 
     as_draws_df(variable = "^b", regex = T)
-  names(posterior) <- c("Intercepto", "Edad (+1 SD)", "Genero: (Femenino) - (Masculino)", "Universidad: (Aysén) - (Magallanes)", "Área de estudio: (Salud) - (Ingeniería)", "Área de estudio: (Administrativo) - (Ingeniería)", "Área de estudio: (Social) - (Ingeniería)", "Alcohol: (No) - (Sí)", "Tabaco: (No) - (Sí)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Intercept", "Age (+1 SD)", "Sex:\n(Female) - (Male)", "University:\n(Aysén) - (Magallanes)", "Study area:\n(Healthcare) - (Engineer)", "Study area:\n(Administrative) - (Engineer)", "Study area:\n(Social Sciencies) - (Engineer)", "Alcohol:\n(No) - (Yes)", "Tabaco:\n(No) - (Yes)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig1 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig1.png", fig1, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+plot(fig1)
 ```
 **Figura 1**. Factores sociodemográficos y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
-
 
 ### Edad
 
@@ -221,7 +222,7 @@ ms3_edad <- readRDS("../models/factores-y-dolor/ms3_edad.RDS")
 ms4_edad <- readRDS("../models/factores-y-dolor/ms4_edad.RDS")
 ```
 
-Al evaluar el efecto de la edad sobre los distintos dominios de dolor, observamos evidencia moderada a fuerte a favor de la hipótesis nula, lo que sugiere que la edad no tiene un efecto sobre el impacto funcional del dolor ($\beta$ = 0.05, CI 95% [-0.16, 0.24], pd = 0.67, ps = 0.08, ROPE = 0.93, BF10 = 0.037), ni sobre la intensidad reportada de dolor ($\beta$ = 0.01, CI 95% [-0.12, 0.15], pd = 0.57, ps = 0.00, ROPE = 1.00, BF10 = 0.023), ni sobre la frecuencia de dolor ($\beta$ = 0.15, CI 95% [-0.20, 0.51], pd = 0.80, ps = 0.44, ROPE = 0.56, BF10 = 0.084), así como tampoco influyó sobre la probabilidad de tener dolor persistente ($\beta$ = -0.02, CI 95% [-0.36, 0.38], pd = 0.53, ps = 0.18, ROPE = 0.70, BF10 = 0.063). 
+Al evaluar el efecto de la edad sobre los distintos dominios de dolor, observamos evidencia moderada a fuerte a favor de la hipótesis nula, lo que sugiere que la edad no tiene un efecto sobre el impacto ../funcional del dolor ($\beta$ = 0.05, CI 95% [-0.16, 0.24], pd = 0.67, ps = 0.08, ROPE = 0.93, BF10 = 0.037), ni sobre la intensidad reportada de dolor ($\beta$ = 0.01, CI 95% [-0.12, 0.15], pd = 0.57, ps = 0.00, ROPE = 1.00, BF10 = 0.023), ni sobre la frecuencia de dolor ($\beta$ = 0.15, CI 95% [-0.20, 0.51], pd = 0.80, ps = 0.44, ROPE = 0.56, BF10 = 0.084), así como tampoco influyó sobre la probabilidad de tener dolor persistente ($\beta$ = -0.02, CI 95% [-0.36, 0.38], pd = 0.53, ps = 0.18, ROPE = 0.70, BF10 = 0.063). 
 
 Al controlar por la influencia de los demás factores, observamos que el efecto de la edad sobre la repercusión funcional del dolor es negativa ($\beta$ = -0.10, CI 95% [-0.37, 0.16]) con un 77% de probabilidad (pd) y una baja probabilidad de ser significativo (ps = 0.27), sin embargo, el efecto marginal de la edad sigue brindando mayor evidencia a favor de la hipótesis nula (BF10 = 0.057). En este sentido, la magnitud de evidencia observada para esta variable en modelos ajustados, no otorgó mayor evidencia a favor de la presencia de un efecto (intensidad de dolor, BF10 = 0.033; frecuencia de dolor, BF10 = 0.118; probabilidad de dolor persistente, BF10 = 0.096).
 
@@ -306,72 +307,73 @@ mc4_score_ipaq <- readRDS("../models/af-dolor/mc4_score_ipaq.RDS")
 p1 <- local({
   posterior <- mc1_score_ipaq |> 
     as_draws_df(variable = "score_ipaq", regex = T)
-  names(posterior) <- c("IPAQ: (Moderado) - (Bajo)", "IPAQ: (Alto) - (Bajo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("IPAQ:\n(Moderate) - (Low)", "IPAQ:\n(High) - (Low)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_score_ipaq |> 
     as_draws_df(variable = "score_ipaq", regex = T)
-  names(posterior) <- c("IPAQ: (Moderado) - (Bajo)", "IPAQ: (Alto) - (Bajo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("IPAQ:\n(Moderate) - (Low)", "IPAQ:\n(High) - (Low)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_score_ipaq |> 
     as_draws_df(variable = "score_ipaq", regex = T)
-  names(posterior) <- c("IPAQ: (Moderado) - (Bajo)", "IPAQ: (Alto) - (Bajo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("IPAQ:\n(Moderate) - (Low)", "IPAQ:\n(High) - (Low)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_score_ipaq |> 
     as_draws_df(variable = "score_ipaq", regex = T)
-  names(posterior) <- c("IPAQ: (Moderado) - (Bajo)", "IPAQ: (Alto) - (Bajo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("IPAQ:\n(Moderate) - (Low)", "IPAQ:\n(High) - (Low)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig2 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig2.png", fig2, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig2)
+
 ```
 **Figura 2**. Niveles de actividad física y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
@@ -393,72 +395,72 @@ mc4_mets_total <- readRDS("../models/af-dolor/mc4_mets_total.RDS")
 p1 <- local({
   posterior <- mc1_mets_total |> 
     as_draws_df(variable = "mets_total", regex = T)
-  names(posterior) <- c("METs totales (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Total METs (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
   posterior[!grepl("Intercepto", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_mets_total |> 
     as_draws_df(variable = "mets_total", regex = T)
-  names(posterior) <- c("METs totales (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Total METs (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
   posterior[!grepl("Intercepto", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_mets_total |> 
     as_draws_df(variable = "mets_total", regex = T)
-  names(posterior) <- c("METs totales (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Total METs (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
   posterior[!grepl("Intercepto", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_mets_total |> 
     as_draws_df(variable = "mets_total", regex = T)
-  names(posterior) <- c("METs totales (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Total METs (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
   posterior[!grepl("Intercepto", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig3 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig3.png", fig3, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig3)
 ```
 **Figura 3**. Gasto energético asociado a la actividad física y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
@@ -482,72 +484,72 @@ mc4_score_matutinidad <- readRDS("../models/cronotipo-dolor/mc4_score_matutinida
 p1 <- local({
   posterior <- mc1_score_matutinidad |> 
     as_draws_df(variable = "score_matutinidad", regex = T)
-  names(posterior) <- c("(Vespertino moderado) - (Vespertino extremo)", "(Intermedio) - (Vespertino extremo)", "(Matutino moderado) - (Vespertino extremo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("(Moderate evening) - (Extreme evening)", "(Intermediate) - (Extreme evening)", "(Moderate morning) - (Extreme evening)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_score_matutinidad |> 
     as_draws_df(variable = "score_matutinidad", regex = T)
-  names(posterior) <- c("(Vespertino moderado) - (Vespertino extremo)", "(Intermedio) - (Vespertino extremo)", "(Matutino moderado) - (Vespertino extremo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("(Moderate evening) - (Extreme evening)", "(Intermediate) - (Extreme evening)", "(Moderate morning) - (Extreme evening)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_score_matutinidad |> 
     as_draws_df(variable = "score_matutinidad", regex = T)
-  names(posterior) <- c("(Vespertino moderado) - (Vespertino extremo)", "(Intermedio) - (Vespertino extremo)", "(Matutino moderado) - (Vespertino extremo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("(Moderate evening) - (Extreme evening)", "(Intermediate) - (Extreme evening)", "(Moderate morning) - (Extreme evening)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_score_matutinidad |> 
     as_draws_df(variable = "score_matutinidad", regex = T)
-  names(posterior) <- c("(Vespertino moderado) - (Vespertino extremo)", "(Intermedio) - (Vespertino extremo)", "(Matutino moderado) - (Vespertino extremo)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("(Moderate evening) - (Extreme evening)", "(Intermediate) - (Extreme evening)", "(Moderate morning) - (Extreme evening)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig4 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig4.png", fig4, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig4)
 ```
 **Figura 4**. Nivel de matutinidad y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
@@ -567,72 +569,76 @@ mc4_matutinidad_score <- readRDS("../models/cronotipo-dolor/mc4_matutinidad_scor
 p1 <- local({
   posterior <- mc1_matutinidad_score |> 
     as_draws_df(variable = "matutinidad_score", regex = T)
-  names(posterior) <- c("Matutinidad score (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Matutinity score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_matutinidad_score |> 
     as_draws_df(variable = "matutinidad_score", regex = T)
-  names(posterior) <- c("Matutinidad score (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Matutinity score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_matutinidad_score |> 
     as_draws_df(variable = "matutinidad_score", regex = T)
-  names(posterior) <- c("Matutinidad score (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Matutinity score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_matutinidad_score |> 
     as_draws_df(variable = "matutinidad_score", regex = T)
-  names(posterior) <- c("Matutinidad score (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Matutinity score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig5 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig5.png", fig5, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig5)
 ```
 **Figura 5**. Puntaje de matutinidad y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
@@ -658,15 +664,15 @@ p1 <- local({
   names(posterior) <- c("PSQI score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
@@ -675,15 +681,15 @@ p2 <- local({
   names(posterior) <- c("PSQI score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
@@ -692,15 +698,15 @@ p3 <- local({
   names(posterior) <- c("PSQI score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
@@ -709,18 +715,22 @@ p4 <- local({
   names(posterior) <- c("PSQI score (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig6 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig6.png", fig6, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig6)
 ```
 **Figura 6**. Puntaje del PSQI y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
@@ -741,72 +751,76 @@ mc4_pittsburg_horasdormidas <- readRDS("../models/psqi-dolor/mc4_pittsburg_horas
 p1 <- local({
   posterior <- mc1_pittsburg_horasdormidas |> 
     as_draws_df(variable = "pittsburg_horasdormidas", regex = T)
-  names(posterior) <- c("Horas dormidas (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Sleep duration (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Impacto funcional sobre el dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Functional impact of pain") +
   theme_classic()
 
 p2 <- local({
   posterior <- mc2_pittsburg_horasdormidas |> 
     as_draws_df(variable = "pittsburg_horasdormidas", regex = T)
-  names(posterior) <- c("Horas dormidas (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Sleep duration (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <-as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Intensidad percibida de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Percieved pain intensity") +
   theme_classic()
 
 p3 <- local({
   posterior <- mc3_pittsburg_horasdormidas |> 
     as_draws_df(variable = "pittsburg_horasdormidas", regex = T)
-  names(posterior) <- c("Horas dormidas (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Sleep duration (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Frecuencia reportada de dolor") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Reported pain frequency") +
   theme_classic()
 
 p4 <- local({
   posterior <- mc4_pittsburg_horasdormidas |> 
     as_draws_df(variable = "pittsburg_horasdormidas", regex = T)
-  names(posterior) <- c("Horas dormidas (+1 SD)", ".chain", ".iteration", ".draw")
+  names(posterior) <- c("Sleep duration (+1 SD)", ".chain", ".iteration", ".draw")
   posterior <- as.data.table(posterior) |> 
     melt(id.vars = c(".chain", ".iteration", ".draw"))
-  posterior[!grepl("Intercepto", variable)]
+  posterior[!grepl("Intercept", variable)]
 }) |> 
   ggplot(aes(value, variable)) +
-  stat_halfeye() +
-  annotate(geom = "area", 
-           x = c(-.18,-.18,.18,.18), 
-           y = c(0,Inf,Inf,0), alpha = .3, 
-           fill = "darkred") +
-  labs(y = NULL, x = "Log-odds", title = "Probabilidad de tener dolor persistente") +
+  stat_halfeye(aes(fill = after_stat(abs(x) > 0.18)), show.legend = FALSE) +
+  geom_vline(xintercept = c(-0.18, 0.18), alpha = .5) +
+  scale_y_discrete(expand = c(0,.1)) +
+  scale_x_continuous(expand = c(0,.1)) +
+  ggsci::scale_fill_jama() +
+  labs(y = NULL, x = "Log-odds", title = "Prevalence of persistent pain") +
   theme_classic()
 
-ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+fig7 <- ggpubr::ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2, align = "hv")
+
+ggsave(filename = "docs/fig7.png", fig7, "png", width = 10, height = 8, units = "in", dpi = 500)
+
+print(fig7)
 ```
 **Figura 7**. Horas de sueño por noche y su efecto sobre el dolor en sus diferentes dimensiones. El área sombreada roja representa el área de equivalencia práctica (ROPE).
 
